@@ -1,14 +1,12 @@
 angular
 	.module('app')
-	.controller('homeCtrl', ['$scope', '$http', function($scope, $http){
+	.controller('homeCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
 		$scope.searchFood = function() {
 			$scope.whoops = $scope.food;
-			$http.post('/findFood', $scope.food).then(
-				function successCallback(res) {
-					console.log(res);
-				}, function errorCallback(res) {
-					console.log('ohno');
-				}
-			)
+			$http.get('/getUser/' + $scope.food).then(function() {
+				alert("salut");
+			}, function() {
+				alert("nu merge");
+			})
 		}
 	}])

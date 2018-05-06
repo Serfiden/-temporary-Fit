@@ -1,18 +1,11 @@
 <div id = "firstPageContainer">
-	<header id = "headerContainer">
-		<div id = "mainTitle">
-			WholeFit
-		</div>
-		<div id = "navbarContainer">
-				<a href="">Home</a>
-				<a href="">Foods</a>
-				<a href="">About</a>
-				<a href="">Contact</a>
-		</div>
-	</header>
+	<div id = "bannerContainer">
+		<img src = "resources/mainBanner.jpg">	
+	</div>
+
 	<div id = "mainContainer" style = "height:200px;display:block">
-		<div id = "foodInfos">
-			<input type="text" ng-model = "food" id = "foodInput">
+		<div id = "foodInfos" style = "display:inline-block">
+			<input type="text" ng-model = "food" id = "foodInput" >
 			<button ng-click = "searchFood()" id = "searchFoodButton">Search</button>
 			<div>
 				{{whoops}}

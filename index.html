@@ -11,7 +11,9 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="styles/mainStyle.css">
+	<link rel="stylesheet" type="text/css" href="styles/headerStyle.css">
 	<link rel="stylesheet" type="text/css" href="styles/firstPageStyle.css">
+	<link rel="stylesheet" type="text/css" href="styles/registerStyle.css">
 
 </head>
 <body>
@@ -23,10 +25,13 @@
 	<script src="https://unpkg.com/@uirouter/angularjs@1.0.15/release/angular-ui-router.js"></script>
 	<script src="https://d3js.org/d3.v5.min.js"></script>
 
-	<!-- View -->
-
 	<div ng-app = "app">
-		<div ui-view>
+		<header ui-view = "header">
+			
+
+		</header>
+
+		<div ui-view = "main">
 			
 
 		</div>
@@ -36,6 +41,8 @@
 
 	<script type="text/javascript" src = "scripts/services/app.js"></script>
 	<script type="text/javascript" src = "scripts/controllers/homeCtrl.js"></script>
+	<script type="text/javascript" src = "scripts/controllers/registerCtrl.js"></script>
+	<script type="text/javascript" src = "scripts/controllers/headerCtrl.js"></script>
 
 </body>
 </html>

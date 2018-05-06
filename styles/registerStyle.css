@@ -1,0 +1,10 @@
+#inputsContainer {
+	position:relative;
+	top:40px;
+	margin-left:19%;
+}
+.registerInput {
+	display:block;
+	margin-top:15px;
+
+}

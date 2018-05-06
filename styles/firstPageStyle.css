@@ -1,44 +1,3 @@
-#firstPageContainer {
-	background: linear-gradient(#8bf9b0, #ffffff);
-	height:auto;
-	font-family: 'Shrikhand', cursive;
-}
-
-#headerContainer {
-	font-family: 'Shrikhand', cursive !important;
-	left:0px;
-	margin:0;
-	padding:0;
-	height:auto;
-}
-
-#mainTitle {
-	position: relative;
-	display:inline-block;
-	font-weight:300;
-	font-size:40px;
-	color:#1671ff;
-	margin-top:40px;
-	margin-left:10%;
-	opacity:.95;
-}
-
-#navbarContainer {
-	display:inline-block;
-	margin-top:35px;
-	margin-left:25%;
-}
-
-#navbarContainer > a {
-	display:inline-block;
-	position:relative;
-	margin-right:30px;
-	font-size:20px;
-	color:#1671ff;
-	opacity: .95;
-	text-decoration: none;
-}
-
 #foodInfos{
 	position:relative;
 	margin-top:5%;
@@ -47,4 +6,17 @@
 
 #searchFoodButton {
 
+}
+
+#bannerContainer {
+	text-align:center;
+	max-width:100%;
+}
+
+#bannerContainer > img {
+	width:50%;
+}
+
+#mainContainer {
+	text-align:center;
 }
