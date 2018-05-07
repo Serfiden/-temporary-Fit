@@ -95,16 +95,6 @@ app.get('/styles/registerStyle.css', function(req, res){
 
 // New user
 
-app.post('/newPost', function(req, res){
-	var insertString = "('" + req.body.username + "', '" + req.body.postingDate+ "', '" + req.body.message + "')";
-	var queryString = "INSERT INTO arkonjafeed (username, data, msg) VALUES " + insertString;
-	conn.query(queryString, function(err, results) {
-		if(err) throw err;
-		console.log(results);
-	});
-	res.end();
-});
-
 app.post('/submitUser', function(req, res){
 	var userData = "('" + req.body.name + "', '" + req.body.email + "', '" + req.body.password + "')";
 	var insertDataQuery = "INSERT INTO users (name, email, password) VALUES " + userData;
