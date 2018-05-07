@@ -1,14 +1,28 @@
 angular
 	.module('app')
 	.controller('registerCtrl', ['$scope', '$http', function($scope, $http){
+		var secondPhase;
+
 		$scope.submit = function() {
-			var toSend = {
-				firstName: $scope.fname,
-				lastName: $scope.lname,
-				age: $scope.age,
-				height: $scope.height,
-				weight: $scope.weight
+
+			let toSend = {
+				name: $scope.fname + " " + $scope.lname,
+				email: $scope.email,
+				password: $scope.pass
+			} 
+
+			if (toSend.password != $scope.confirm) {
+				$scope.confirmAlert = true;
+
+			} else {
+				$scope.submitted = false;
+				$scope.created = true;
+
+				$http.post('/submitUser', toSend);	
 			}
-			$http.post('/submitUser', toSend);		
+		}
+
+		$scope.create = function() {
+			$scope.created = false;
 		}
 }])

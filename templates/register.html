@@ -1,15 +1,28 @@
 <div id = "registerContainer">
-	<div id = "inputsContainer">
-		<div style = "margin-left:39%">
-			<text style = "color:#28d319;;">To start things off, we want to know a few things about you!</text>
-			<input type="text" placeholder = "First name" ng-model = "fname" class = "registerInput" >
-			<input type="text" placeholder = "Last name" ng-model = "lname" class = "registerInput">
-			<input type="text" placeholder = "E-mail" ng-model = "email" class = "registerInput">
-			<input type="text" placeholder = "Age" ng-model = "age" class = "registerInput">
-			<input type="text" placeholder = "Height in meters" ng-model = "height" class = "registerInput">
-			<input type="text" placeholder = "Weight in kgs" ng-model = "weight" class = "registerInput">
-			<!-- <input type="text" ng-model = "sal" class = "registerInput"> -->
-			<button ng-click = "submit()" style = "margin-top:15px">Submit</button>
+	<div id = "inputsContainer" ng-init = "submitted = true; created = false">
+		<div style = "margin-left:39%" ng-if = "submitted">
+			<text style = "color:#28d319">To start things off, let's create your account!</text>
+
+			<input type="text" placeholder = "First name" ng-model = "$parent.fname" class = "registerInput" >
+			<input type="text" placeholder = "Last name" ng-model = "$parent.lname" class = "registerInput">
+			<input type="text" placeholder = "E-mail" ng-model = "$parent.email" class = "registerInput">
+			<input type="password" placeholder = "Password" ng-init = "$parent.confirmAlert = false" ng-model = "$parent.pass" class = "registerInput">
+			
+			<text ng-if = "confirmAlert" class = "registerInput" style = "color:red">The two passwords do not match!</text>
+			
+			<input type="password" placeholder = "Confirm password" ng-model = "$parent.confirm" class = "registerInput">
+
+			<button ng-click = "submit()" style = "margin-top: 15px">Submit</button>
+		</div>
+
+		<div style = "margin-left:39%" ng-if = "created">
+			<text style = "color:#28d319">Now let us know a few things about you!</text>
+			
+			<input type="text" placeholder = "Age" ng-model = "$parent.age" class = "registerInput">
+			<input type="text" placeholder = "Height in meters" ng-model = "$parent.height" class = "registerInput">
+			<input type="text" placeholder = "Weight in kgs" ng-model = "$parent.weight" class = "registerInput">
+
+			<button ng-click = "$parent.create()" style = "margin-top: 15px">Create Account</button>
 		</div>
 	</div>
 

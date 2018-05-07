@@ -2,8 +2,7 @@
 	position:relative;
 	display:block;
 	width:100%;
-	height:300px;
-	top:80px;
+	top:60px;
 }
 
 #inputsContainer {	
@@ -11,6 +10,12 @@
 	display:inline-block;
 	height:100%;
 }
+
+#inputsContainer > div {
+	position:relative;
+	top:0px;
+}
+
 .registerInput {
 	display:block;
 	margin-top:15px;
