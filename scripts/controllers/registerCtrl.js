@@ -3,7 +3,8 @@ angular
 	.controller('registerCtrl', ['$scope', '$http', function($scope, $http){
 		$scope.submit = function() {
 			var toSend = {
-				name: $scope.name,
+				firstName: $scope.fname,
+				lastName: $scope.lname,
 				age: $scope.age,
 				height: $scope.height,
 				weight: $scope.weight

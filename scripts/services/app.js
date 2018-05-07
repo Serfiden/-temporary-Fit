@@ -9,8 +9,12 @@ angular.module('app', [
 				abstract: true,
 				views: {
 					'header': {
-						templateUrl: '/-temporary-Fit/templates/header.html',
+						templateUrl: '/templates/header.html',
 						controller: 'headerCtrl'
+					},
+					'footer': {
+						templateUrl: '/templates/footer.html',
+						controller: 'footerCtrl'
 					}
 				}
 			})
@@ -18,7 +22,7 @@ angular.module('app', [
 				url: '/',
 				views: {
 					'main@': {
-						templateUrl: '/-temporary-Fit/templates/home.html',
+						templateUrl: '/templates/home.html',
 						controller: 'homeCtrl'
 					}
 				}
@@ -27,7 +31,7 @@ angular.module('app', [
 				url: '/register',
 				views: {
 					'main@': {
-						templateUrl: '/-temporary-Fit/templates/register.html',
+						templateUrl: '/templates/register.html',
 						controller: 'registerCtrl'
 					}
 				}

@@ -3,13 +3,11 @@
 		<img src = "resources/mainBanner.jpg">	
 	</div>
 
-	<div id = "mainContainer" style = "height:200px;display:block">
-		<div id = "foodInfos" style = "display:inline-block">
-			<input type="text" ng-model = "food" id = "foodInput" >
-			<button ng-click = "searchFood()" id = "searchFoodButton">Search</button>
-			<div>
-				{{whoops}}
-			</div>	
-		</div>
+	<div id = "foodInfos">
+		<input type="text" ng-model = "food" id = "foodInput">
+		<button ng-click = "searchFood()" id = "searchFoodButton">Display nutritional values!</button>
+		<div>
+			{{whoops}}
+		</div>	
 	</div>
 </div>
