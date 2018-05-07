@@ -95,6 +95,8 @@ app.get('/styles/registerStyle.css', function(req, res){
 
 // New user
 
+	// first step 
+
 app.post('/submitUser', function(req, res){
 	var userData = "('" + req.body.name + "', '" + req.body.email + "', '" + req.body.password + "')";
 	var insertDataQuery = "INSERT INTO users (name, email, password) VALUES " + userData;
@@ -105,3 +107,6 @@ app.post('/submitUser', function(req, res){
 	})
 	res.end();
 })
+
+	// second step -- user details
+	
