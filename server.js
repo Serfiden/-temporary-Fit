@@ -105,8 +105,14 @@ app.post('/submitUser', function(req, res){
 		if(err) throw err;
 		console.log(results);
 	})
+	
+	res.send('SELECT uid WHERE email = ?', req.body.email);
 	res.end();
 })
 
 	// second step -- user details
+
+app.post('/newUserDetails', function(req, res){
+
+})
 	

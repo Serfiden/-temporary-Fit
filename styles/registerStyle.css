@@ -16,10 +16,26 @@
 	top:0px;
 }
 
+.registerMenu {
+	margin-left:39%;
+}
+
 .registerInput {
 	display:block;
 	margin-top:15px;
 	box-shadow: none;
+}
+
+.registerGuide {
+	color:#28d319;
+}
+
+.registerAlert {
+	color:red;
+}
+
+.confirmationButton {
+	margin-top:15px;
 }
 
 #loginContainer {

@@ -1,7 +1,13 @@
 angular
 	.module('app')
 	.controller('registerCtrl', ['$scope', '$http', function($scope, $http){
-		var secondPhase;
+
+		var checkAvailableEmail = function(email) {
+			return $http.get('/checkAvailableEmail/' + email).then(function success(results) {
+				
+			})
+		}
+
 
 		$scope.submit = function() {
 
@@ -14,15 +20,49 @@ angular
 			if (toSend.password != $scope.confirm) {
 				$scope.confirmAlert = true;
 
-			} else {
+			} else if (
+
+			else {
 				$scope.submitted = false;
 				$scope.created = true;
 
-				$http.post('/submitUser', toSend);	
+				//$http.post('/submitUser', toSend);	
 			}
 		}
 
 		$scope.create = function() {
-			$scope.created = false;
+			$scope.ageAlert = false;
+			$scope.heightAlert = false;
+			$scope.weightAlert = false;
+
+			if (!isNaN($scope.age)) {
+				if (!isNaN($scope.height)) {
+					if (!isNaN($scope.weight)) {
+						$scope.created = false;
+						$scope.completed = true;
+			
+						let toSend = {
+							age: $scope.age,
+							height: $scope.height,
+							weight: $scope.weight
+						}
+
+						$http.post('/newUserDetails', toSend);
+
+					} else {
+						$scope.weightAlert = true;
+					}
+				} else {
+					$scope.heightAlert = true;
+				}
+			} else {
+				$scope.ageAlert = true;
+			}
+
+
+			
 		}
 }])
+
+
+// ALTER TABLE `users` ADD `dasdasda` INT NOT NULL AFTER `password`;

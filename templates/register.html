@@ -1,28 +1,53 @@
 <div id = "registerContainer">
-	<div id = "inputsContainer" ng-init = "submitted = true; created = false">
-		<div style = "margin-left:39%" ng-if = "submitted">
-			<text style = "color:#28d319">To start things off, let's create your account!</text>
+	<div id = "inputsContainer" ng-init = "submitted = true; created = false; completed = false" style = "color:#28d319">
+		
+		<!-- First step account creation -->
+
+		<div class = "registerMenu" ng-if = "submitted" >
+			<text class = "registerGuide">To start things off, let's create your account!</text>
 
 			<input type="text" placeholder = "First name" ng-model = "$parent.fname" class = "registerInput" >
 			<input type="text" placeholder = "Last name" ng-model = "$parent.lname" class = "registerInput">
 			<input type="text" placeholder = "E-mail" ng-model = "$parent.email" class = "registerInput">
 			<input type="password" placeholder = "Password" ng-init = "$parent.confirmAlert = false" ng-model = "$parent.pass" class = "registerInput">
 			
-			<text ng-if = "confirmAlert" class = "registerInput" style = "color:red">The two passwords do not match!</text>
+			<text ng-if = "confirmAlert" class = "registerInput registerAlert">The two passwords do not match!</text>
 			
 			<input type="password" placeholder = "Confirm password" ng-model = "$parent.confirm" class = "registerInput">
 
-			<button ng-click = "submit()" style = "margin-top: 15px">Submit</button>
+			<button ng-click = "submit()" class = "confirmationButton">Submit</button>
 		</div>
 
-		<div style = "margin-left:39%" ng-if = "created">
-			<text style = "color:#28d319">Now let us know a few things about you!</text>
-			
-			<input type="text" placeholder = "Age" ng-model = "$parent.age" class = "registerInput">
-			<input type="text" placeholder = "Height in meters" ng-model = "$parent.height" class = "registerInput">
-			<input type="text" placeholder = "Weight in kgs" ng-model = "$parent.weight" class = "registerInput">
+		<!-- Second step account creation -->
 
-			<button ng-click = "$parent.create()" style = "margin-top: 15px">Create Account</button>
+		<div class = "registerMenu" ng-if = "created">
+			<text >Now let us know a few things about you!</text>
+			
+			<input type="text" placeholder = "Age" ng-model = "$parent.age" ng-init = "$parent.ageAlert = false" class = "registerInput">
+			<text ng-if = "ageAlert" class = "registerInput" class = "registerInput registerAlert">Please enter a valid age!</text>
+
+			<input type="text" placeholder = "Height in meters" ng-model = "$parent.height" ng-init = "$parent.heightAlert = false" class = "registerInput">
+			<text ng-if = "heightAlert" class = "registerInput" class = "registerInput registerAlert">
+				Please enter a valid height! <br>
+				(make sure to use a period instead of a comma)
+			</text>
+
+			<input type="text" placeholder = "Weight in kgs" ng-model = "$parent.weight" ng-init = "$parent.weightAlert = false" class = "registerInput">
+			<text ng-if = "weightAlert" class = "registerInput" class = "registerInput registerAlert">
+				Please enter a valid height! <br>
+				(make sure to use a period instead of a comma) 
+			</text>
+
+			<button ng-click = "$parent.create()">Create Account</button>
+		</div>
+
+		<!-- Successful creation -->
+
+		<div class = "registerMenu" ng-if = "completed">
+			<text>
+				Account succesfully created! <br>
+				You can now enter your <a href="">account!</a>
+			</text>
 		</div>
 	</div>
 
