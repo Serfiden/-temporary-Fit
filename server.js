@@ -108,6 +108,8 @@ app.post('/submitUser', function(req, res) {
 	res.end();
 });
 
+	// check whether the email the user is trying to use already exists in the database
+
 app.get('/checkAvailableEmail/:email', function(req, res) {
 	conn.query("SELECT uid FROM users WHERE email = ?", req.params.email, function(err, results){
 		if(err) throw err;
@@ -120,12 +122,17 @@ app.get('/checkAvailableEmail/:email', function(req, res) {
 	// second step -- user details
 
 app.post('/newUserDetails', function(req, res){
+
+	// Add some user details
+
 	var insertionQuery = "UPDATE users SET age = " + req.body.age + " AND height = " + req.body.height + " WHERE email = '" + req.body.email + "'";
 
 	conn.query(insertionQuery, function(err, results) {
 		if(err) throw err;
 		console.log(results);	
 	});
+
+	// Create unique table for each user with given structure
 
 	conn.query("CREATE TABLE " + req.body.tableName.toUpperCase() + " ( \
 			WEIGHT	INT,	\
@@ -139,6 +146,8 @@ app.post('/newUserDetails', function(req, res){
 		console.log(results);
 
 	});
+
+	// Add the first table entry
 
 	var currentDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
 

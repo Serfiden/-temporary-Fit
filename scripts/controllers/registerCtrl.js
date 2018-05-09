@@ -4,6 +4,8 @@ angular
 
 		var checkAvailableEmail = function() {
 
+			// Requesting email validation from server, if given email address is available proceed with the user creation process
+
 			$http.get('/checkAvailableEmail/' + $scope.email).then(function success(results) {
 				var response = results.data;
 				if (typeof response[0] != 'undefined') {
@@ -16,6 +18,8 @@ angular
 						email: $scope.email,
 						password: $scope.pass
 					}
+
+					// Finish up first part of user creation
 
 					$scope.submitted = false;
 					$scope.created = true;
@@ -41,6 +45,8 @@ angular
 			$scope.ageAlert = false;
 			$scope.heightAlert = false;
 			$scope.weightAlert = false;
+
+			// Basic data validation + finishing up the creation process
 
 			if (!isNaN($scope.age)) {
 				if (!isNaN($scope.height)) {
@@ -69,6 +75,3 @@ angular
 			}			
 		}
 }])
-
-
-// ALTER TABLE `users` ADD `dasdasda` INT NOT NULL AFTER `password`;
