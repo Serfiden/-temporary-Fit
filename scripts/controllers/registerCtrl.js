@@ -2,9 +2,8 @@ angular
 	.module('app')
 	.controller('registerCtrl', ['$scope', '$http', function($scope, $http){
 
+		// Requesting email validation from server, if given email address is available proceed with the user creation process
 		var checkAvailableEmail = function() {
-
-			// Requesting email validation from server, if given email address is available proceed with the user creation process
 
 			$http.get('/checkAvailableEmail/' + $scope.email).then(function success(results) {
 				var response = results.data;
@@ -12,7 +11,7 @@ angular
 					$scope.emailAlert = true;
 					return;
 
-				}	else {
+				} else {
 					let toSend = {
 						name: $scope.fname + " " + $scope.lname,
 						email: $scope.email,
@@ -28,19 +27,17 @@ angular
 			})
 		}
 
-
+		// Verify and send data from first user creation step
 		$scope.submit = function() { 
 			if ($scope.pass != $scope.confirm) {
 				$scope.confirmAlert = true;
 
-			} 	else {
+			} else {
 				checkAvailableEmail($scope.email);
 			}
 		}
 
 		$scope.create = function() {
-
-
 			console.log($scope.email)
 			$scope.ageAlert = false;
 			$scope.heightAlert = false;
