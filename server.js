@@ -97,7 +97,7 @@ app.get('/styles/registerStyle.css', function(req, res){
 
 	// first step 
 
-app.post('/submitUser', function(req, res){
+app.post('/submitUser', function(req, res) {
 	var userData = "('" + req.body.name + "', '" + req.body.email + "', '" + req.body.password + "')";
 	var insertDataQuery = "INSERT INTO users (name, email, password) VALUES " + userData;
 	
@@ -105,14 +105,46 @@ app.post('/submitUser', function(req, res){
 		if(err) throw err;
 		console.log(results);
 	})
-	
-	res.send('SELECT uid WHERE email = ?', req.body.email);
 	res.end();
+});
+
+app.get('/checkAvailableEmail/:email', function(req, res) {
+	conn.query("SELECT uid FROM users WHERE email = ?", req.params.email, function(err, results){
+		if(err) throw err;
+		console.log(results);
+
+		res.send(results);
+	})
 })
 
 	// second step -- user details
 
 app.post('/newUserDetails', function(req, res){
+	var insertionQuery = "UPDATE users SET age = " + req.body.age + " AND height = " + req.body.height + " WHERE email = '" + req.body.email + "'";
 
+	conn.query(insertionQuery, function(err, results) {
+		if(err) throw err;
+		console.log(results);	
+	});
+
+	conn.query("CREATE TABLE " + req.body.tableName.toUpperCase() + " ( \
+			WEIGHT	INT,	\
+			AT_DATE DATE, \
+			TOTAL_CALORIES INT, \
+			FAT INT, \
+			CARBOHYDRATES INT, \
+			PROTEIN INT \
+		)", function(err, results) {
+		if(err) throw err;
+		console.log(results);
+
+	});
+
+	var currentDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
+
+	conn.query("INSERT INTO " + req.body.tableName + " (weight, at_date) VALUES (" + req.body.weight + ", '" + currentDate + "')" , function(err, results) {
+		if(err) throw err;
+		console.log(results);
+	});
 })
 	
