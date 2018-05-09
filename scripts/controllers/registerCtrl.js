@@ -56,7 +56,7 @@ angular
 							age: $scope.age,
 							height: $scope.height,
 							weight: $scope.weight,
-							tableName: $scope.email.substr(0, $scope.email.indexOf('@')) + (Math.floor(Math.random() * 1000 + 200))
+							tableName: $scope.email.substr(0, $scope.email.indexOf('@')).replace('.', '') + (Math.floor(Math.random() * 1000 + 200))
 						}
 
 						$http.post('/newUserDetails', toSend);
