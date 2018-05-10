@@ -1,8 +1,7 @@
 #registerContainer {
 	position:relative;
-	display:block;
-	width:100%;
 	top:60px;
+	font-family: 'Shrikhand', cursive;
 }
 
 #inputsContainer {	
@@ -17,7 +16,7 @@
 }
 
 .registerMenu {
-	margin-left:39%;
+	margin-left:32%;
 }
 
 .registerInput {
@@ -51,5 +50,5 @@
 	display:inline-block;
 	width:50%;
 	position:relative;
-	height:100%;
+	margin-top:0;
 }
