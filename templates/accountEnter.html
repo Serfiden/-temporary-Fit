@@ -25,16 +25,16 @@
 			<text >Now let us know a few things about you!</text>
 			
 			<input type="text" placeholder = "Age" ng-model = "$parent.age" ng-init = "$parent.ageAlert = false" class = "registerInput">
-			<text ng-if = "ageAlert" class = "registerInput" class = "registerInput registerAlert">Please enter a valid age!</text>
+			<text ng-if = "ageAlert" class = "registerInput registerAlert">Please enter a valid age!</text>
 
 			<input type="text" placeholder = "Height in meters" ng-model = "$parent.height" ng-init = "$parent.heightAlert = false" class = "registerInput">
-			<text ng-if = "heightAlert" class = "registerInput" class = "registerInput registerAlert">
+			<text ng-if = "heightAlert" class = "registerInput registerAlert">
 				Please enter a valid height! <br>
 				(make sure to use a period instead of a comma)
 			</text>
 
 			<input type="text" placeholder = "Weight in kgs" ng-model = "$parent.weight" ng-init = "$parent.weightAlert = false" class = "registerInput">
-			<text ng-if = "weightAlert" class = "registerInput" class = "registerInput registerAlert">
+			<text ng-if = "weightAlert" class = "registerInput registerAlert">
 				Please enter a valid height! <br>
 				(make sure to use a period instead of a comma) 
 			</text>
@@ -55,8 +55,11 @@
 	<div class = "w3-cell">
 		<text class = "registerGuide">If you already have an account, log in now!</text>
 
-		<input type = "text" placeholder = "Email" ng-model = "loginEmail" class = "registerInput">
-		<input type = "text" placeholder = "Password" ng-model = "loginPass" class = "registerInput">
+		<input type = "text" placeholder = "Email" ng-model = "loginEmail" ng-init = "loginEmailAlert = false" class = "registerInput">
+		<text ng-if = "loginEmailAlert" class = "registerInput registerAlert">This email does not exist!</text> 
+
+		<input type = "text" placeholder = "Password" ng-model = "loginPass" ng-init = "loginPassAlert = false" class = "registerInput">
+		<text ng-if = "loginPassAlert" class = "registerInput registerAlert">Incorrect password!</text>
 	
 		<button ng-click = "login()" class = "confirmationButton">Login</button>
 	</div>

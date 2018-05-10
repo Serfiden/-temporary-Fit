@@ -71,4 +71,31 @@ angular
 				$scope.ageAlert = true;
 			}			
 		}
+
+		$scope.login = function() {
+			var toVerify = {
+				email: $scope.loginEmail,
+				password: $scope.loginPass
+			}
+
+			console.log(toVerify);
+			let toContinue;
+
+			/*$http.get('/verifyEmail/' + toVerify.email).then(function(response) {
+				if (typeof response.data[0] != 'undefined') {*/
+					$http.get('/verifyPass/' + toVerify.password + '/' + toVerify.email).then(function(response) {
+
+						console.log('uh');
+
+						if (typeof response.data[0] != 'undefined') {
+							console.log('succ');
+						} else {
+							$scope.loginPassAlert = true;
+						}
+					});
+				/*} else {
+					$scope.loginEmailAlert = true;
+				}*/
+			
+		}
 }])
