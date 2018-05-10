@@ -1,0 +1,55 @@
+#registerContainer {
+	position:relative;
+	display:block;
+	width:100%;
+	top:60px;
+}
+
+#inputsContainer {	
+	width:49.6%;
+	display:inline-block;
+	height:100%;
+}
+
+#inputsContainer > div {
+	position:relative;
+	top:0px;
+}
+
+.registerMenu {
+	margin-left:39%;
+}
+
+.registerInput {
+	display:block;
+	margin-top:15px;
+	box-shadow: none;
+}
+
+.registerGuide {
+	color:#28d319;
+}
+
+.registerAlert {
+	color:red;
+}
+
+.confirmationButton {
+	margin-top:15px;
+}
+
+.fade.ng-enter {
+	transition:0.5s linear all;
+	opacity:0;
+}
+
+.fade.ng-enter.ng-enter-active {
+	opacity:1;
+}
+
+#loginContainer {
+	display:inline-block;
+	width:50%;
+	position:relative;
+	height:100%;
+}
