@@ -28,12 +28,12 @@ angular.module('app', [
 					}
 				}
 			})
-			.state('root.register', {
-				url: '/register',
+			.state('root.accountEnter', {
+				url: '/accountEnter',
 				views: {
 					'main@': {
-						templateUrl: '/templates/register.html',
-						controller: 'registerCtrl'
+						templateUrl: '/templates/accountEnter.html',
+						controller: 'accountEnterCtrl'
 					}
 				}
 			})

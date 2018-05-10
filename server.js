@@ -39,8 +39,8 @@ app.get('/scripts/controllers/homeCtrl.js', function(req, res){
 	res.sendFile(__dirname + '/scripts/controllers/homeCtrl.js');
 })
 
-app.get('/scripts/controllers/registerCtrl.js', function(req, res){
-	res.sendFile(__dirname + '/scripts/controllers/registerCtrl.js');
+app.get('/scripts/controllers/accountEnterCtrl.js', function(req, res){
+	res.sendFile(__dirname + '/scripts/controllers/accountEnterCtrl.js');
 })
 
 app.get('/scripts/controllers/headerCtrl.js', function(req, res){
@@ -65,8 +65,8 @@ app.get('/templates/footer.html', function(req, res){
 	res.sendFile(__dirname + '/templates/footer.html');
 })
 
-app.get('/templates/register.html', function(req, res){
-	res.sendFile(__dirname + '/templates/register.html');
+app.get('/templates/accountEnter.html', function(req, res){
+	res.sendFile(__dirname + '/templates/accountEnter.html');
 })
 
 // Resources
@@ -89,8 +89,8 @@ app.get('/styles/mainStyle.css', function(req, res){
 	res.sendFile(__dirname + '/styles/mainStyle.css');
 })
 
-app.get('/styles/registerStyle.css', function(req, res){
-	res.sendFile(__dirname + '/styles/registerStyle.css');
+app.get('/styles/accountEnterStyle.css', function(req, res){
+	res.sendFile(__dirname + '/styles/accountEnterStyle.css');
 })
 
 // New user

@@ -5,6 +5,6 @@ angular
 			$location.path('/');
 		}
 		$scope.toAccount = function() {
-			$location.path('/register');
+			$location.path('/accountEnter');
 		}
 	}])
