@@ -52,16 +52,23 @@
 		</div>
 	</div>
 
-	<div class = "w3-cell">
-		<text class = "registerGuide">If you already have an account, log in now!</text>
+	<div class = "w3-cell" ng-init = "loginComplete = false">
+		<div ng-if = "!loginComplete" class = "fade">
+			<text class = "registerGuide">If you already have an account, log in now!</text>
 
-		<input type = "text" placeholder = "Email" ng-model = "loginEmail" ng-init = "loginEmailAlert = false" class = "registerInput">
-		<text ng-if = "loginEmailAlert" class = "registerInput registerAlert">This email does not exist!</text> 
+			<input type = "text" placeholder = "Email" ng-model = "$parent.loginEmail" ng-init = "$parent.loginEmailAlert = false" class = "registerInput">
+			<text ng-if = "loginEmailAlert" class = "registerInput registerAlert">This email does not exist!</text> 
 
-		<input type = "text" placeholder = "Password" ng-model = "loginPass" ng-init = "loginPassAlert = false" class = "registerInput">
-		<text ng-if = "loginPassAlert" class = "registerInput registerAlert">Incorrect password!</text>
-	
-		<button ng-click = "login()" class = "confirmationButton">Login</button>
+			<input type = "password" placeholder = "Password" ng-model = "$parent.loginPass" ng-init = "$parent.loginPassAlert = false" class = "registerInput">
+			<text ng-if = "loginPassAlert" class = "registerInput registerAlert">Incorrect password!</text>
+		
+			<button ng-click = "$parent.login()" class = "confirmationButton">Login</button>
+		</div>
+
+		<div ng-if = "loginComplete" class = "fade">
+			<text class = "registerGuide">Redirecting you to your account...</text>
+		</div>
 	</div>
+
 
 </div>

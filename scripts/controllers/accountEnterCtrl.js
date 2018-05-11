@@ -81,21 +81,19 @@ angular
 			console.log(toVerify);
 			let toContinue;
 
-			/*$http.get('/verifyEmail/' + toVerify.email).then(function(response) {
-				if (typeof response.data[0] != 'undefined') {*/
+			$http.get('/verifyEmail/' + toVerify.email).then(function(response) {
+				if (typeof response.data[0] != 'undefined') {
 					$http.get('/verifyPass/' + toVerify.password + '/' + toVerify.email).then(function(response) {
-
-						console.log('uh');
-
 						if (typeof response.data[0] != 'undefined') {
-							console.log('succ');
+							$scope.loginComplete = true;
 						} else {
 							$scope.loginPassAlert = true;
 						}
 					});
-				/*} else {
+				} else {
 					$scope.loginEmailAlert = true;
-				}*/
+				}
+			});
+		};
 			
-		}
 }])

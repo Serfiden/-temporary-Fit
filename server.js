@@ -172,7 +172,7 @@ app.get('/verifyEmail/:email', function(req, res) {
 	});
 });
 
-app.get('verifyPass/:pass/:email', function(req, res) {
+app.get('/verifyPass/:pass/:email', function(req, res) {
 	var searchQuery = "SELECT uid FROM users WHERE email = '" + req.params.email + "' AND password = '" + req.params.pass + "'";
 	
 	console.log(searchQuery);
