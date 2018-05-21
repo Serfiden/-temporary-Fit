@@ -47,10 +47,12 @@
 		<div class = "registerMenu fade" ng-if = "completed">
 			<text>
 				Account succesfully created! <br>
-				You can now enter your <a href="">account!</a>
+				You can now enter your <a href="" ng-click = "$parent.toPerson()">account!</a>
 			</text>
-		</div>
+		</div> 
 	</div>
+
+	<!-- Login panel -->
 
 	<div class = "w3-cell" ng-init = "loginComplete = false">
 		<div ng-if = "!loginComplete" class = "fade">
@@ -64,6 +66,8 @@
 		
 			<button ng-click = "$parent.login()" class = "confirmationButton">Login</button>
 		</div>
+
+		<!-- Temporary success message display -->
 
 		<div ng-if = "loginComplete" class = "fade">
 			<text class = "registerGuide">Redirecting you to your account...</text>

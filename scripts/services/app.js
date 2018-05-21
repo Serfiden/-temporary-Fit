@@ -37,4 +37,7 @@ angular.module('app', [
 					}
 				}
 			})
+			.state('root.userPage', {
+				
+			})
 	}])

@@ -125,7 +125,8 @@ app.post('/newUserDetails', function(req, res){
 
 	// Add some user details
 
-	var insertionQuery = "UPDATE users SET age = " + req.body.age + " AND height = " + req.body.height + " WHERE email = '" + req.body.email + "'";
+	var insertionQuery = "UPDATE users SET age = " + req.body.age + " AND height = " + req.body.height + "AND personal_table = '" + req.body.tableName 
+						+ "' WHERE email = '" + req.body.email + "'";
 
 	conn.query(insertionQuery, function(err, results) {
 		if (err) throw err;
@@ -140,7 +141,7 @@ app.post('/newUserDetails', function(req, res){
 			TOTAL_CALORIES INT, \
 			FAT INT, \
 			CARBOHYDRATES INT, \
-			PROTEIN INT \
+			PROTEIN INT, \
 		)", function(err, results) {
 		if (err) throw err;
 		console.log(results);

@@ -1,6 +1,6 @@
 angular
 	.module('app')
-	.controller('accountEnterCtrl', ['$scope', '$http', function($scope, $http){
+	.controller('accountEnterCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
 
 		// Requesting email validation from server, if given email address is available proceed with the user creation process
 		var checkAvailableEmail = function() {
@@ -59,6 +59,7 @@ angular
 							tableName: $scope.email.substr(0, $scope.email.indexOf('@')).replace('.', '') + (Math.floor(Math.random() * 1000 + 200))
 						}
 
+						$scope.userTable = toSend.tableName;
 						$http.post('/newUserDetails', toSend);
 
 					} else {
@@ -78,14 +79,12 @@ angular
 				password: $scope.loginPass
 			}
 
-			console.log(toVerify);
-			let toContinue;
-
 			$http.get('/verifyEmail/' + toVerify.email).then(function(response) {
 				if (typeof response.data[0] != 'undefined') {
 					$http.get('/verifyPass/' + toVerify.password + '/' + toVerify.email).then(function(response) {
 						if (typeof response.data[0] != 'undefined') {
 							$scope.loginComplete = true;
+							$scope.toPerson();
 						} else {
 							$scope.loginPassAlert = true;
 						}
@@ -95,5 +94,10 @@ angular
 				}
 			});
 		};
+
+		$scope.toPerson = function() {
+			$location.path('/');
+		}
+
 			
 }])
